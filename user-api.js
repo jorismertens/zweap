@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Where we will keep books
+// Where we will keep users
 let users = [];
 
 app.use(cors());
@@ -24,4 +24,9 @@ app.post('/user', (req, res) => {
     res.send('User is added to the database');
 });
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+
+app.get('/users', (req, res) => {
+    res.json(users);
+});
+
+app.listen(port, () => console.log(`user-api listening op port${port}!`));
