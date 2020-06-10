@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.post('/user', (req, res) => {
     const user = req.body;
 
-    // Output the book to the console for debugging
+    // Output the user to the console for debugging
     console.log(user);
     users.push(user);
 
