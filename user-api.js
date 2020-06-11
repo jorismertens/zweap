@@ -16,7 +16,17 @@ app.use(bodyParser.json());
 
 app.post('/user', (req, res) => {
     const user = req.body;
+    console.log('hello post');
+    // Output the user to the console for debugging
+    console.log(user);
+    users.push(user);
 
+    res.send('User is added to the database');
+});
+
+app.get('/user', (req, res) => {
+    const user = req.body;
+    console.log('hello get');
     // Output the user to the console for debugging
     console.log(user);
     users.push(user);

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+ $(document).ready(function(){
+     $("button").click(function(){
+
+
+        var msg= {};
+        msg.LULLO2Operations= {};
+        msg.LULLO2Operations.inputstruct={};
+        msg.LULLO2Operations.inputstruct.opCode='REG';
+        msg.LULLO2Operations.inputstruct.firstname=$("#firstname").val();
+        msg.LULLO2Operations.inputstruct.lastname=$("#lastname").val();
+        msg.LULLO2Operations.inputstruct.nickname=$("#nickname").val();
+        msg.LULLO2Operations.inputstruct.email=$("#email").val();
+
+        $.post("localhost:3000/user",
+    {
+      name: "Donald Duck",
+      city: "Duckburg"
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+
+
+            
+        //   <form action="http://10.3.20.48:1414/zweap/newAttendee" method="GET">
+        //$.get("localhost:3000/user",{'firstname':$("#firstname").val()},
+         //   function(data,status){
+         //   alert("Data: " + data + "\nStatus: " + status);
+         //   });
+     });
+});
+         
+        </script>
+</head>
+<body>
+
+<div class="container">
+    <hr>
+    <h1>Create New User</h1>
+    <hr>
+
+  <form>
+            <label for="firstname">Firstname</label>
+            <input id="firstname" > </input>
+    
+            <label for="lastname">Lastname</label>
+            <input id="lastname"> </input>
+    
+            <label for="nickname">Nickname</label>
+            <input id="nickname"> </input>
+          
+            <label for="email">Email</label>
+            <input id="email"> </input>
+
+        <button id="button" type="submit" >Submit</button>
+    
+    </form>
+</div>
+
+</body>
+</html>
