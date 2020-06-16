@@ -5,8 +5,8 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Where we will keep books
-let users = [];
+// Where we will keep users
+var users = [];
 
 app.use(cors());
 
@@ -15,13 +15,30 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/user', (req, res) => {
-    const user = req.body;
-
-    // Output the book to the console for debugging
+	console.log('hello post');
+    const user =  req.body;
+    
+    // Output the user to the console for debugging
     console.log(user);
     users.push(user);
-
     res.send('User is added to the database');
 });
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+app.get('/user', (req, res) => {
+	console.log('hello get');
+    const user = req.body;
+   
+    // Output the user to the console for debugging
+    console.log(user);
+    users.push(user);
+    res.send('User is added to the database');
+});
+
+app.get('/', function(req,res) {
+  res.sendFile('new-user-frank.html', { root: __dirname });
+});
+app.get('/users', (req, res) => {
+    res.json(users);
+});
+
+app.listen(port, () => console.log(`user-api listening op pooort ${port}!`));
