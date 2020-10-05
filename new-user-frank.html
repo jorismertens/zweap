@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+ $(document).ready(function(){
+     $("button").click(function(){
+
+        var msg= {
+		"LULLO2Operations" : {
+		"inputstruct" : {
+			"opCode":'REG',
+			"firstname" : $("#firstname").val(),
+			"lastname" : $("#lastname").val(),
+			"nickname" : $("#nickname").val(),
+			"email" : $("#email").val(),
+			
+				}
+			}
+		};
+	$.ajax({
+		  url:"user",
+		  type:"POST",
+		  data:JSON.stringify(msg),
+		  contentType:"application/json; charset=utf-8",
+		  success: function(){
+			alert("Data: " + data + "\nStatus: " + status);
+		  }
+		})
+      });
+});
+         
+        </script>
+</head>
+<body>
+
+<div class="container">
+    <hr>
+    <h1>Create New User</h1>
+    <hr>
+
+  <form>
+            <label for="firstname">Firstname</label>
+            <input id="firstname" > </input>
+    
+            <label for="lastname">Lastname</label>
+            <input id="lastname"> </input>
+    
+            <label for="nickname">Nickname</label>
+            <input id="nickname"> </input>
+          
+            <label for="email">Email</label>
+            <input id="email"> </input>
+
+        <button id="button" type="submit" >Submit</button>
+    
+    </form>
+</div>
+
+</body>
+</html>
